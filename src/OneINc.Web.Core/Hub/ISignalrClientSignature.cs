@@ -1,6 +1,6 @@
 ﻿namespace OneINc.Web.Core.Hub
 {
-    public interface ISignalrEncodingHub
+    public interface ISignalrClientSignature
     {
         Task DisplayMessage(string message);
     }

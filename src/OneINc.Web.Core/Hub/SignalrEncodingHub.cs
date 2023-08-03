@@ -2,7 +2,7 @@
 
 namespace OneINc.Web.Core.Hub
 {
-    public class SignalrEncodingHub : Hub<ISignalrEncodingHub>
+    public class SignalrEncodingHub : Hub<ISignalrClientSignature>
     {
         
     }

@@ -31,7 +31,6 @@ namespace One.INc.Tests.IntegrationTests.Endpoints
             var encodingRequest = new AuthLoginRequest { Password = pass, Username = user };
 
             // Act 
-            
             var response = await this.PostAsync(mockService.Object, encodingRequest);
 
             // Assert 

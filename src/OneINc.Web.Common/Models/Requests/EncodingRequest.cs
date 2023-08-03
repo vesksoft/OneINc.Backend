@@ -4,5 +4,6 @@
     {
         public string? Content { get; set; }
         public Guid SessionId { get; set; }
+        public string SignalRSessionId { get; set; }
     }
 }

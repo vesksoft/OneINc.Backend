@@ -32,7 +32,7 @@ namespace OneINc.Web.Core.Services
             {
                 _sessionDic.TryAdd(request.SessionId, true);
 
-                await EncodeAndNotifyUIViaSignalRAsync(request.Content, request.SessionId, delayExecution);
+                await EncodeAndNotifyUIViaSignalRAsync(request.Content, request.SessionId, request.SignalRSessionId, delayExecution);
                 
                 _sessionDic.TryRemove(request.SessionId, out _);
             }
@@ -42,7 +42,7 @@ namespace OneINc.Web.Core.Services
             }
         }
 
-        private async Task EncodeAndNotifyUIViaSignalRAsync(string strValue, Guid sessionId, bool delayExecution) 
+        private async Task EncodeAndNotifyUIViaSignalRAsync(string strValue, Guid sessionId, string signalRSession, bool delayExecution) 
         {
             var encodedText = Convert.ToBase64String(Encoding.UTF8.GetBytes(strValue));
 
@@ -61,7 +61,7 @@ namespace OneINc.Web.Core.Services
 
                 if (found)
                 {
-                    await _signalrEncodingHub.Clients.Caller.DisplayMessage(temp);
+                    await _signalrEncodingHub.Clients.Client(signalRSession).DisplayMessage(temp);                  
                 }
                 else
                 {

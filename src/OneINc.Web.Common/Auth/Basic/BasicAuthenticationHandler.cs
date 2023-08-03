@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using OneINc.Web.Common.Models;
-using System.Runtime.CompilerServices;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Encodings.Web;
@@ -30,7 +29,6 @@ namespace OneINc.Web.Common.Auth.Basic
             }
             else 
             {
-
                 // No authorization header, so throw no result.
                 if (!Request.Headers.ContainsKey("Authorization"))
                 {
@@ -63,7 +61,6 @@ namespace OneINc.Web.Common.Auth.Basic
                 {
                     return Task.FromResult(AuthenticateResult.Fail(string.Format("The secret is incorrect for the client '{0}'", clientId)));
                 }
-
 
                 // Return a success result.
                 return Task.FromResult(AuthenticateResult.Success(GetAuthenticationTicket(clientId)));

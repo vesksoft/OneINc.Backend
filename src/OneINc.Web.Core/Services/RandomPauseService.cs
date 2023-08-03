@@ -28,7 +28,7 @@ namespace OneINc.Web.Core.Services
         public async Task<int> DelayByRandomTimeAsync()
         {
             var currentPause = _randomTimeProvider
-                .Next(_randomPauseOptions.StartValue, _randomPauseOptions.EndValue) * SecondMultiplier;
+                .Next(_randomPauseOptions.StartValue, _randomPauseOptions.EndValue + 1) * SecondMultiplier;
 
             await Task.Delay(currentPause);
 

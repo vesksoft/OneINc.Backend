@@ -38,6 +38,8 @@ namespace One.INc.Tests.ValidatorTests
             EncodingRequest encodingRequest = new EncodingRequest
             {
                 Content = contentValue,
+                SignalRSessionId = "session",
+                SessionId = Guid.NewGuid(),
             };
 
             // Act 
